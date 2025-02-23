@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Water Tracker</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <span>
+        Drink Water!<img
+          src="./assets/Heart.svg"
+          alt="Heart.svg"
+          width="30"
+          height="20"
+        />
+      </span>
+    </div>
+    <div></div>
+    <!-- Clody Bg Section -->
+    <div class="cloudy-bg">
+      <div id="time">
+        <img
+          class="rotating-div"
+          src="./assets/Flower.svg"
+          alt="Flower.svg"
+          width="40"
+          height="40"
+        />
+        <span id="hours"></span><span id="colon">:</span
+        ><span id="minutes"></span><span id="ampm"></span>
+      </div>
+      <button class="revert-button" id="revert-button">◀</button>
+      <div class="intake-group">
+        <img
+          id="water-glass"
+          src="./assets/0-FilledWaterGlass.svg"
+          alt="WaterGlass.svg"
+          width="100"
+          height="100"
+        />
+        <div>Water Intake:<span id="water-count">0</span></div>
+        <div class="water-drop-group" id="water-drop-group">
+          <!-- Water Drops Progress -->
+        </div>
+      </div>
+    </div>
+    <script src="renderer.js"></script>
+  </body>
+</html>
