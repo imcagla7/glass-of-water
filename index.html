@@ -28,6 +28,18 @@
     <div></div>
     <!-- Clody Bg Section -->
     <div class="cloudy-bg">
+      <div id="goal-modal" class="modal">
+        <p>How many glasses of water is your goal?</p>
+        <input
+          type="number"
+          id="water-goal"
+          min="1"
+          placeholder="set your goal"
+          autofocus
+        />
+        <button id="start-button" class="button">Start</button>
+      </div>
+
       <div id="time">
         <img
           class="rotating-div"
@@ -40,7 +52,8 @@
         ><span id="minutes"></span><span id="ampm"></span>
       </div>
       <button class="revert-button" id="revert-button">◀</button>
-      <div class="intake-group">
+      <button class="reset-button" id="reset-button">reset</button>
+      <div id="intake-group" class="intake-group">
         <img
           id="water-glass"
           src="./assets/0-FilledWaterGlass.svg"

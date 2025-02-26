@@ -1,6 +1,7 @@
 // --- Sound Effects Start ---
 const mouseClickSound = new Audio("./assets/mouse-click.mp3");
 const drinkingWaterSound = new Audio("./assets/drinking-water-trim.mp3");
+const typingSound = new Audio("./assets/keyboard-typing.mp3");
 
 function playSound(audio) {
   audio.currentTime = 0; // Başa sar
@@ -10,10 +11,46 @@ function playSound(audio) {
 
 // --- Local Storage Start ---
 let waterIntake = localStorage.getItem("waterIntake") ?? 0;
+let waterGoal = localStorage.getItem("waterGoal") ?? 0;
 function setLocalState(state) {
   localStorage.setItem("waterIntake", state);
 }
 // --- Local Storage End ---
+
+// --- Window Load Start ---
+window.onload = function () {
+  if (waterGoal > 0) {
+    document.getElementById("intake-group").style.display = "flex";
+    document.getElementById("revert-button").style.display = "flex";
+    document.getElementById("reset-button").style.display = "flex";
+    document.getElementById("goal-modal").style.display = "none";
+    updateUI();
+  }
+};
+// --- Window Load End ---
+
+// --- Set Goal Start ---
+const goalInput = document.getElementById("water-goal");
+goalInput.addEventListener("input", function (e) {
+  playSound(typingSound);
+  localStorage.setItem("waterGoal", e.target.value);
+});
+
+document.getElementById("start-button").addEventListener("click", function () {
+  playSound(mouseClickSound);
+  const goal = localStorage.getItem("waterGoal");
+  if (goal && goal > 0) {
+    waterGoal = goal;
+    document.getElementById("intake-group").style.display = "flex";
+    document.getElementById("revert-button").style.display = "flex";
+    document.getElementById("reset-button").style.display = "flex";
+    document.getElementById("goal-modal").style.display = "none";
+    updateUI();
+  } else {
+    alert("Please enter a valid water goal!");
+  }
+});
+// --- Set Goal End ---
 
 // --- Update UI Start ---
 const waterGroup = document.getElementById("water-drop-group");
@@ -21,7 +58,7 @@ const waterCountSpan = document.getElementById("water-count");
 
 function updateUI() {
   if (waterGroup.children.length === 0) {
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < waterGoal; i++) {
       const button = document.createElement("span");
       button.classList.add("water-drop");
 
@@ -43,7 +80,7 @@ function updateUI() {
         : "./assets/WaterDropEmpty.svg";
   }
 
-  waterCountSpan.innerText = `${waterIntake}/8`;
+  waterCountSpan.innerText = `${waterIntake}/${waterGoal}`;
 }
 updateUI();
 // --- Update UI Start End ---
@@ -58,6 +95,16 @@ document.getElementById("revert-button").addEventListener("click", () => {
   updateUI();
 });
 // --- Revert Button Method End---
+
+// --- Reset Button Method Start---
+document.getElementById("reset-button").addEventListener("click", () => {
+  playSound(mouseClickSound);
+  mouseClickSound.onended = () => {
+    localStorage.clear();
+    location.reload();
+  };
+});
+// --- Reset Button Method End---
 
 // --- Time Update Start ---
 function updateTime() {
@@ -117,7 +164,7 @@ document.getElementById("water-glass").addEventListener("click", function () {
       }
     }, 200);
   }
-  if (waterIntake < 8) {
+  if (waterIntake < waterGoal) {
     waterIntake++;
     setLocalState(waterIntake);
   }

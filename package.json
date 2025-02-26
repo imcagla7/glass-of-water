@@ -1,5 +1,5 @@
 {
-  "name": "water-tracker-desktop",
+  "name": "glass-of-water",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,7 @@
   },
   "build": {
     "appId": "com.waterTracker",
+    "productName": "Glass of Water",
     "mac": {
       "icon": "assets/appIcon.png"
     }
