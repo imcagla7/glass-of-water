@@ -6,9 +6,9 @@ Water Tracker is a desktop application that helps you track your daily water int
 
 [Watch the demo on GitHub](https://github.com/imcagla7/glass-of-water/issues/1)
 
-<img width="462" alt="Ekran Resmi 2025-02-28 18 14 20" src="https://github.com/user-attachments/assets/f90f9df5-8829-4cab-8818-2cbe72f567dc" />
+<img width="300" alt="Ekran Resmi 2025-02-28 18 14 20" src="https://github.com/user-attachments/assets/f90f9df5-8829-4cab-8818-2cbe72f567dc" />
 
-<img width="462" alt="Ekran Resmi 2025-02-28 18 14 36" src="https://github.com/user-attachments/assets/29bcbc3f-8235-41aa-a408-f7b7db513a74" />
+<img width="300" alt="Ekran Resmi 2025-02-28 18 14 36" src="https://github.com/user-attachments/assets/29bcbc3f-8235-41aa-a408-f7b7db513a74" />
 
 ## 🎨 Design
 
