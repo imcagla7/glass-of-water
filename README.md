@@ -39,3 +39,6 @@ I researched and included a **free pixel font** that fits the pixel art style of
    ```
 2. Install dependencies: `npm install`
 3. To start: `npm start`
+
+## License
+This project is licensed under the [MIT License](./LICENSE).
